@@ -1,1 +1,27 @@
-<p>Jon's page </p>
+<div>
+<h3>Change Restrictions</h3>
+<form id = "changeRestrictions" action = "EZRecipes/api/changeRestrictions" method = "POST">
+    <input type="checkbox" name="Dairy" value="1">Dairy Free <br>
+    <input type = "checkbox" name = "gluten" value = "1">Gluten Free <br>
+    <input type = "checkbox" name = "nuts" value = "1">No Nuts<br>
+    <input type = "checkbox" name = "vegetarian" value = "1">Vegetarian Only<br>
+    <input type = "checkbox" name = "vegan" value = "1">Vegan Only
+    <input type="submit" value="Change Restrictions">
+</form>
+</div>
+<div>
+<H3>Change Password</H3>
+<form id = "changePassword" action="EZRecipes/api/changePassword" method="POST">
+    <input name="currentPassword" type="password" placeholder="current password" required />
+    <input name ="newPassword" type="password" placeholder="new password" required />
+    <iput name ="confirmNewPassword" type ="password" placeholder="Retype new password" required/>
+    <input type="submit" value ="Change Password">               
+</form>
+</div>
+<h3>Delete Account</h3>
+<form id = "deleteAccount" action="/EZRecipes/api/deleteAccount"  method = "POST">
+    <input name="password" type = "password" placeholder= "password">
+    <input type ="checkbox" name ="conirmDelete" value ="1">Confirm Delete<br>
+    <input type= "submit" value = "Delete Account">
+</form>
+</div>
