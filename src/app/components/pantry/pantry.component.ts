@@ -15,17 +15,17 @@ export class PantryComponent implements OnInit {
   constructor(private ps:PantryWebService) { }
 
   private userId:BigInteger;
-  private ingredients:Ingredient[];
+  private ingredients:Ingredient[] = [];
   private allIngredients:Ingredient[];
   
 
   //define lists for form
   // protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg"), new Ingredient(4, "protein", "chicken")];
-  protein:Ingredient[] = [new Ingredient(0, null, "None")];
-  vegetable:Ingredient[] = [new Ingredient(0, null, "None")];
-  fruit:Ingredient[] = [new Ingredient(0, null, "None")];
-  grain:Ingredient[] = [new Ingredient(0, null, "None")];
-  dairy:Ingredient[] = [new Ingredient(0, null, "None")];
+  protein:Ingredient[] = [new Ingredient(0, null, "Protein")];
+  vegetable:Ingredient[] = [new Ingredient(0, null, "Vegetable")];
+  fruit:Ingredient[] = [new Ingredient(0, null, "Fruit")];
+  grain:Ingredient[] = [new Ingredient(0, null, "Grain")];
+  dairy:Ingredient[] = [new Ingredient(0, null, "Dairy")];
 
   ngOnInit() {
     this.populateFormIngredients();
@@ -59,26 +59,34 @@ export class PantryComponent implements OnInit {
   getCurrentIngredients(userid: any) {
     this.ps.getCurrentIngredients().subscribe(
       data => {
-        this.ingredients = data as any;
+        var returnedIngredients = data as Ingredient[];
+        for(var i=0; i < returnedIngredients.length; i++){
+          this.ingredients.push(new Ingredient(returnedIngredients[i].ingredientId, returnedIngredients[i].category, returnedIngredients[i].name));
+        }
         console.log(this.ingredients);
-        // this.showCurrentIngredients;
       }
     )
   }
 
-  //dont think i need this method
-  // showCurrentIngredients(){
-  //   for(let i = 0; i <= this.ingredients.length; i++){
-
-  //   }
-  // }
-
-
   //on form change post new ingredient
   postIngredient(value){
     value = <Ingredient> value;
-    if(value.name != "None"){
-      this.ps.postIngredient(value).subscribe(ingredient => this.ingredients.push(ingredient));
+    var obj:any = JSON.parse(value);
+    if(obj.ingredientId != 0){
+      this.ps.postIngredient(value).subscribe(ingredient => this.ingredients.push(new Ingredient(ingredient.ingredientId, ingredient.category, ingredient.name)));
     }
+  }
+
+  deleteIngredient(value){
+    console.log(value);
+    value = <Ingredient> value;
+    this.ps.deleteIngredient(value).subscribe(ingredient => {
+      var index = 0;
+      for(var i=0; i < this.ingredients.length; i++){
+        if(ingredient.name == this.ingredients[i].name){
+          index = i;
+        }
+      }
+      this.ingredients.splice(index, 1)})
   }
 }

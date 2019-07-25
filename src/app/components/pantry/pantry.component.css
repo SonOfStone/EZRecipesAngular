@@ -13,6 +13,18 @@ h3{
     border-bottom-color: coral;
 }
 
-.form-group{
-    padding: 10px;
+button{
+    width: 50%;
+    margin: 2px;
+}
+
+button:hover{
+    background: red;
+    border-color: red;
+}
+
+select{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
 }

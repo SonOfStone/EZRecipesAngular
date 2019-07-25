@@ -18,6 +18,7 @@ const httpOptions = {
 export class PantryWebService {
   //need to change these
   postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update/1";
+  deleteUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/delete/1"
   getUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/1"
   getAllIngredientsUrl: string = "http://localhost:8080/EZRecipes/api/ingredient/all"
 
@@ -37,5 +38,12 @@ export class PantryWebService {
 
   getAllIngredients(){
     return this.http.get(this.getAllIngredientsUrl)
+  }
+
+  deleteIngredient(ingredient: Ingredient): Observable<Ingredient>{
+    console.log(ingredient);
+    // need to change httpOptions
+    return this.http.post<Ingredient>(this.deleteUrl, ingredient, httpOptions)
+    .pipe(); 
   }
 }

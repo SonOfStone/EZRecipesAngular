@@ -1,9 +1,9 @@
 export class Ingredient {
-    ingredientId : Number
+    ingredientId : number
     category : String
     name : String
 
-    constructor(ingredientId: Number, category: String, name: String) {
+    constructor(ingredientId: number, category: String, name: String) {
         this.ingredientId = ingredientId;
         this.category = category;
         this.name = name;
