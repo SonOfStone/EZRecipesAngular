@@ -19,7 +19,7 @@ const httpOptions = {
 })
 export class PantryWebService {
   //need to change these
-  postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update";
+  postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update/1";
   getUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/1"
 
   constructor(private http:HttpClient ) { }
@@ -28,17 +28,9 @@ export class PantryWebService {
   postIngredient(ingredient: Ingredient): Observable<Ingredient>{
     console.log(ingredient);
     // need to change httpOptions
-    return this.http.post<Ingredient>(this.postUrl, ingredient)
-    .pipe(
-      catchError(this.handleError('addIngredient', ingredient))
-    );
+    return this.http.post<Ingredient>(this.postUrl, ingredient, httpOptions)
+    .pipe();
   }
-
-  //handle an error
-  handleError(arg0: string, ingredient: Ingredient): (err: any, caught: Observable<Ingredient>) => import("rxjs").ObservableInput<any> {
-    throw new Error(arg0 + ingredient);
-  }
-
 
   getCurrentIngredients(){
     return this.http.get(this.getUrl)

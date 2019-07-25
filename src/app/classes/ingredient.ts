@@ -10,6 +10,6 @@ export class Ingredient {
     }
 
     stringify(){
-        return '{ingredientId: ' + this.ingredientId + ', category: "' + this.category + '", name: "' + this.name + '"}';
+        return '{"ingredientId": ' + this.ingredientId + ', "category": "' + this.category + '", "name": "' + this.name + '"}';
     }
 }

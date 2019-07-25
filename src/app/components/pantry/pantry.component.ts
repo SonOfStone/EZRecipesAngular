@@ -19,7 +19,7 @@ export class PantryComponent implements OnInit {
   
 
   //define lists for form
-  protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg")];
+  protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg"), new Ingredient(4, "protein", "chicken")];
   vegetable = ['None', 'Brocolli', 'Asparagus', 'Cucumber'];
 
   ngOnInit() {
