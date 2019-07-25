@@ -1,0 +1,18 @@
+div{
+    text-align: center;
+    padding: 0px;
+}
+
+.flex-container{
+    padding-top: 20px;
+}
+
+h3{
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: coral;
+}
+
+.form-group{
+    padding: 10px;
+}

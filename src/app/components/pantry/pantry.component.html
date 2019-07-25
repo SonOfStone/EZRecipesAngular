@@ -1,5 +1,65 @@
 <div class="flex-container">
-    <div class="ingredient col-3" *ngFor="let ingredient of ingredients">
-        <p>{{ingredient.name}}</p>
+    <div class="row">
+        <div class="protein col">
+            <h3>Protein</h3>
+            <div class="ingredient" *ngFor="let ingredient of ingredients">
+                <div class="ingredientText" *ngIf="ingredient.category=='protein'">
+                    <p>{{ingredient.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="vegetable col">
+            <h3>Vegetable</h3>
+            <div class="ingredient" *ngFor="let ingredient of ingredients">
+                <div class="ingredientText" *ngIf="ingredient.category=='vegetable'">
+                    <p>{{ingredient.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="fruit col">
+            <h3>Fruit</h3>
+            <div class="ingredient" *ngFor="let ingredient of ingredients">
+                <div class="ingredientText" *ngIf="ingredient.category=='fruit'">
+                    <p>{{ingredient.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="grain col">
+            <h3>Grain</h3>
+            <div class="ingredient" *ngFor="let ingredient of ingredients">
+                <div class="ingredientText" *ngIf="ingredient.category=='grain'">
+                    <p>{{ingredient.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="dairy col">
+            <h3>Dairy</h3>
+            <div class="ingredient" *ngFor="let ingredient of ingredients">
+                <div class="ingredientText" *ngIf="ingredient.category=='dairy'">
+                    <p>{{ingredient.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Add Ingredients</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            <form>
+                <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
+                    <option *ngFor="let ingredient of protein" [value]="ingredient.stringify()">{{ingredient.name}}</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group col">
+            <form>
+                <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
+                    <option *ngFor="let ingredient of vegetable" [value]="ingredient">{{ingredient}}</option>
+                </select>
+            </form>
+        </div>
     </div>
 </div>
