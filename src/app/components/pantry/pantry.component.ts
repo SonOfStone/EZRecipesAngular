@@ -16,16 +16,46 @@ export class PantryComponent implements OnInit {
 
   private userId:BigInteger;
   private ingredients:Ingredient[];
+  private allIngredients:Ingredient[];
   
 
   //define lists for form
-  protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg"), new Ingredient(4, "protein", "chicken")];
-  vegetable = ['None', 'Brocolli', 'Asparagus', 'Cucumber'];
+  // protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg"), new Ingredient(4, "protein", "chicken")];
+  protein:Ingredient[] = [new Ingredient(0, null, "None")];
+  vegetable:Ingredient[] = [new Ingredient(0, null, "None")];
+  fruit:Ingredient[] = [new Ingredient(0, null, "None")];
+  grain:Ingredient[] = [new Ingredient(0, null, "None")];
+  dairy:Ingredient[] = [new Ingredient(0, null, "None")];
 
   ngOnInit() {
+    this.populateFormIngredients();
     this.getCurrentIngredients(this.userId);
   }
   
+  //grabs all the ingredients in db
+  populateFormIngredients(){
+    this.ps.getAllIngredients().subscribe(
+      data => {
+        this.allIngredients = data as any;
+        console.log(this.allIngredients);
+        for(var i=0; i < this.allIngredients.length; i++){
+          let ingredient:Ingredient = new Ingredient(this.allIngredients[i].ingredientId, this.allIngredients[i].category, this.allIngredients[i].name);
+          if(this.allIngredients[i].category == "protein"){
+            this.protein.push(ingredient)
+          }else if(this.allIngredients[i].category == "vegetable"){
+            this.vegetable.push(ingredient)
+          }else if(this.allIngredients[i].category == "fruit"){
+            this.fruit.push(ingredient)
+          }else if(this.allIngredients[i].category == "grain"){
+            this.grain.push(ingredient)
+          }else if(this.allIngredients[i].category == "dairy"){
+            this.dairy.push(ingredient)
+          }
+        }
+      }
+    )
+  }
+
   getCurrentIngredients(userid: any) {
     this.ps.getCurrentIngredients().subscribe(
       data => {
@@ -46,9 +76,7 @@ export class PantryComponent implements OnInit {
 
   //on form change post new ingredient
   postIngredient(value){
-    console.log(value as Ingredient);
     value = <Ingredient> value;
-    console.log(value);
     if(value.name != "None"){
       this.ps.postIngredient(value).subscribe(ingredient => this.ingredients.push(ingredient));
     }

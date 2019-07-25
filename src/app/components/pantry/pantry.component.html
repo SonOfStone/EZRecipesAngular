@@ -57,7 +57,28 @@
         <div class="form-group col">
             <form>
                 <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
-                    <option *ngFor="let ingredient of vegetable" [value]="ingredient">{{ingredient}}</option>
+                    <option *ngFor="let ingredient of vegetable" [value]="ingredient.stringify()">{{ingredient.name}}</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group col">
+            <form>
+                <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
+                    <option *ngFor="let ingredient of fruit" [value]="ingredient.stringify()">{{ingredient.name}}</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group col">
+            <form>
+                <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
+                    <option *ngFor="let ingredient of grain" [value]="ingredient.stringify()">{{ingredient.name}}</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group col">
+            <form>
+                <select class="form-control" id="addIngredient" (change)="postIngredient($event.target.value)">
+                    <option *ngFor="let ingredient of dairy" [value]="ingredient.stringify()">{{ingredient.name}}</option>
                 </select>
             </form>
         </div>

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Ingredient } from '../classes/ingredient';
-import { error } from 'util';
 
 
 //set these headers later on referenced in postIngredient
@@ -21,6 +19,7 @@ export class PantryWebService {
   //need to change these
   postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update/1";
   getUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/1"
+  getAllIngredientsUrl: string = "http://localhost:8080/EZRecipes/api/ingredient/all"
 
   constructor(private http:HttpClient ) { }
   
@@ -34,5 +33,9 @@ export class PantryWebService {
 
   getCurrentIngredients(){
     return this.http.get(this.getUrl)
+  }
+
+  getAllIngredients(){
+    return this.http.get(this.getAllIngredientsUrl)
   }
 }
