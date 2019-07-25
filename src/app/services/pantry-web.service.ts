@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Ingredient } from '../classes/ingredient';
-import { error } from 'util';
 
 
 //set these headers later on referenced in postIngredient
@@ -19,28 +17,33 @@ const httpOptions = {
 })
 export class PantryWebService {
   //need to change these
-  postUrl: string = "http://localhost:8088/EZRecipes/api/user/pantry/update";
+  postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update/1";
+  deleteUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/delete/1"
   getUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/1"
+  getAllIngredientsUrl: string = "http://localhost:8080/EZRecipes/api/ingredient/all"
 
   constructor(private http:HttpClient ) { }
   
   //used to post an ingredient when selected
   postIngredient(ingredient: Ingredient): Observable<Ingredient>{
+    console.log(ingredient);
     // need to change httpOptions
     return this.http.post<Ingredient>(this.postUrl, ingredient, httpOptions)
-    .pipe(
-      catchError(this.handleError('addIngredient', ingredient))
-    );
+    .pipe();
   }
-
-  //handle an error
-  handleError(arg0: string, ingredient: Ingredient): (err: any, caught: Observable<Ingredient>) => import("rxjs").ObservableInput<any> {
-    console.log(error);
-    throw new Error("Unable to add ingredient");
-  }
-
 
   getCurrentIngredients(){
     return this.http.get(this.getUrl)
+  }
+
+  getAllIngredients(){
+    return this.http.get(this.getAllIngredientsUrl)
+  }
+
+  deleteIngredient(ingredient: Ingredient): Observable<Ingredient>{
+    console.log(ingredient);
+    // need to change httpOptions
+    return this.http.post<Ingredient>(this.deleteUrl, ingredient, httpOptions)
+    .pipe(); 
   }
 }
