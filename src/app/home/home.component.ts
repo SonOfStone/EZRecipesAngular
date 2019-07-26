@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-clickcounter:number=0;name="test";
+  static thename(thename: any, any: any) {
+    throw new Error("Method not implemented.");
+  }
+ name="testghkhg";
+   static _homename = "chicken";
+  static get homename() {
+    return HomeComponent._homename;
+  }
+  static set homename(value) {
+    HomeComponent._homename = value;
+  }
+clickcounter:number=0;
   constructor() { }
 
   ngOnInit() {
@@ -14,6 +25,6 @@ clickcounter:number=0;name="test";
 countClick(){
 console.log("I have been clicked");
 this.clickcounter++;
-
+  HomeComponent.homename=this.name;
 }
 }

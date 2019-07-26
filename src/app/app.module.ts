@@ -7,12 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import {FormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { RealhomeComponent } from './realhome/realhome.component';
+import { DisplaypageComponent } from './displaypage/displaypage.component';
+import { RecipeSearchPageComponent } from './recipe-search-page/recipe-search-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    RealhomeComponent,
+    DisplaypageComponent,
+    RecipeSearchPageComponent
   ],
   imports: [
     BrowserModule,

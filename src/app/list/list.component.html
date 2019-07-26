@@ -1,11 +1,30 @@
 <p>list works!</p>
 <h1>
     Brewerie <h1>
+      
 
-<ul *ngIf="brews">
-<li *ngFor="let brew of brews" >
-<p class="name">{{ brew.name }}</p>
-    <p class="country">{{ brew.country }}</p>
-    <a class="site" href="{{ brew.website_url }}">{{brew.name}}site</a>
-</li>
-</ul>
+<p >the id if the meal is as follows {{theId}}</p>
+<p *ngIf="theId">{{theId}}</p>
+<p *ngIf="theId">{{theinstructionstocook}}</p>
+<h1>here is the image you get></h1>
+<img src={{theimagesyouuse}} alt="Smiley face">
+<p *ngIf="theId">{{the1stingrediant}}</p>
+<p *ngIf="theId">{{the2stingrediant}}</p>
+<p *ngIf="theId">{{the3stingrediant}}</p>
+<p *ngIf="theId">{{the4stingrediant}}</p>
+<p *ngIf="theId">{{the5stingrediant}}</p>
+<p *ngIf="theId">{{the6stingrediant}}</p>
+<p *ngIf="theId">{{the7stingrediant}}</p>
+<p *ngIf="theId">{{the8stingrediant}}</p>
+<p *ngIf="theId">{{theId}}</p>
+
+<div>
+        <br>Here is the exmaple of property binding
+    <input type="text" [(ngModel)]="rname">
+            <br>{{rname}}
+            
+    </div>
+    <span (click)="countClick()">
+            this is the click function thta you will be using
+            
+            </span>
