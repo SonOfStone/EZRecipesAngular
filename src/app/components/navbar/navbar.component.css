@@ -2,12 +2,10 @@
 
 div{
     background-color: #0C7489;
+    text-align: left;
 }
 
 a{
     color: #FFFFFF;
     text-align: center;
-    /* border-color: #FFFFFF;
-    border-width: 1px;
-    border-style: solid; */
 }

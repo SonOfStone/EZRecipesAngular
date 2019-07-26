@@ -1,8 +1,14 @@
-<div class="navbar sticky-top">
-    <a class="nav-link flex-fill" href="">Home</a> 
+<div class="navbar sticky-top" *ngIf="isLoggedIn(); else notLoggedIn">
+    <a class="nav-link flex-fill logo" routerLink="home"><img src="assets/images/Resize.png" alt="Logo" class="img-thumbnail" style="width: 50px"> Home</a> 
     <a class="nav-link flex-fill" href="">Search</a> 
     <a class="nav-link flex-fill" routerLink="pantry" >Pantry</a>
-    <a class="nav-link flex-fill" href="" >Favorites</a>
     <a class="nav-link flex-fill" href="" >My Settings</a>
     <a class="nav-link flex-fill logout" href="">Logout</a>
 </div>
+<ng-template #notLoggedIn>
+    <div class="navbar sticky-top">
+        <a class="nav-link flex-fill logo" routerLink="home"><img src="assets/images/Resize.png" alt="Logo" class="img-thumbnail" style="width: 50px"> Home</a> 
+        <a class="nav-link flex-fill" href="">Search</a> 
+        <a class="nav-link flex-fill login" routerLink="login">Login</a>
+    </div>
+</ng-template>

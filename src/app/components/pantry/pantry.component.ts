@@ -8,8 +8,6 @@ import { Ingredient } from 'src/app/classes/ingredient';
   styleUrls: ['./pantry.component.css']
 })
 
-
-
 export class PantryComponent implements OnInit {
 
   constructor(private ps:PantryWebService) { }
@@ -20,7 +18,6 @@ export class PantryComponent implements OnInit {
   
 
   //define lists for form
-  // protein:Ingredient[] = [new Ingredient(0, null, "None"), new Ingredient(2, "protein", "egg"), new Ingredient(4, "protein", "chicken")];
   protein:Ingredient[] = [new Ingredient(0, null, "Protein")];
   vegetable:Ingredient[] = [new Ingredient(0, null, "Vegetable")];
   fruit:Ingredient[] = [new Ingredient(0, null, "Fruit")];
