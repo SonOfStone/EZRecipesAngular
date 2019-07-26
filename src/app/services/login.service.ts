@@ -25,4 +25,24 @@ export class LoginService {
     return this.http.post<User>(this.postUrl, user, httpOptions)
     .pipe();
   }
+
+
+  private loggedin:boolean = false;
+  private userId:number = 0;
+
+  toggleLoggedIn(){
+    this.loggedin = !this.loggedin;
+  }
+
+  isLoggedIn(){
+    return this.loggedin;
+  }
+
+  getUserId(){
+    return this.userId
+  }
+
+  setUserId(userId:number){
+    this.userId = userId;
+  }
 }
