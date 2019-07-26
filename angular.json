@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EZRecipes": {
+    "myappbasic": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/EZRecipes",
+            "outputPath": "dist/myappbasic",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -59,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "EZRecipes:build"
+            "browserTarget": "myappbasic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "EZRecipes:build:production"
+              "browserTarget": "myappbasic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EZRecipes:build"
+            "browserTarget": "myappbasic:build"
           }
         },
         "test": {
@@ -107,15 +106,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "EZRecipes:serve"
+            "devServerTarget": "myappbasic:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "EZRecipes:serve:production"
+              "devServerTarget": "myappbasic:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "EZRecipes"
+  "defaultProject": "myappbasic"
 }
