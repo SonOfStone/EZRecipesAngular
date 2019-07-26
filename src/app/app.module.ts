@@ -1,3 +1,4 @@
+import { ListComponent } from './components/list/list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +12,8 @@ import { PantryComponent } from './components/pantry/pantry.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { HomeComponent2 } from './classes/home/home.component';
+import { RecipeSearchPageComponent } from './components/recipe-search-page/recipe-search-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     PantryComponent,
     HomeComponent,
+    HomeComponent2,
+    ListComponent,
     LoginComponent,
+    RecipeSearchPageComponent,
     PantryComponent
   ],
   imports: [
