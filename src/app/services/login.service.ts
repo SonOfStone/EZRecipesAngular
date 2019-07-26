@@ -18,7 +18,7 @@ export class LoginService {
   constructor(private http:HttpClient ) { }
 
   //change the url
-  postUrl: string = "http://localhost:8080/EZRecipes/api/user/login/";
+  postUrl: string = "http://localhost:8088/EZRecipes/api/user/login/";
 
   login(user: User): Observable<User>{
     // need to change httpOptions

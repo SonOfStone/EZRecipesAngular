@@ -18,10 +18,10 @@ const httpOptions = {
 })
 export class PantryWebService {
   //need to change these
-  postUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/update/";
-  deleteUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/delete/"
-  getUrl: string = "http://localhost:8080/EZRecipes/api/user/pantry/"
-  getAllIngredientsUrl: string = "http://localhost:8080/EZRecipes/api/ingredient/all"
+  postUrl: string = "http://localhost:8088/EZRecipes/api/user/pantry/update/";
+  deleteUrl: string = "http://localhost:8088/EZRecipes/api/user/pantry/delete/"
+  getUrl: string = "http://localhost:8088/EZRecipes/api/user/pantry/"
+  getAllIngredientsUrl: string = "http://localhost:8088/EZRecipes/api/ingredient/all"
 
   constructor(private http:HttpClient, private ls:LoginService) { 
   }
