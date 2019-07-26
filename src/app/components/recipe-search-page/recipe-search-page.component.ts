@@ -52,9 +52,9 @@ this.ngOnInit();
 
 
 
-brews: Object;
-brews2: Object;
-brews3: Object;
+brews: any;
+brews2: any;
+brews3: any;
 the1stingrediant: any;
 the4stingrediant: any;
 the3stingrediant: any;

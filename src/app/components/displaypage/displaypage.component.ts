@@ -9,7 +9,7 @@ import { HttpservService } from 'src/app/services/httpserv.service';
 })
 export class DisplaypageComponent implements OnInit {
 
-  brews: Object;
+  brews: any;
   the1stingrediant: any;
   the4stingrediant: any;
   the3stingrediant: any;

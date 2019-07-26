@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpservService } from '../httpserv.service';
+import { HttpservService } from 'src/app/services/httpserv.service';
 import { HomeComponent } from '../home/home.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { HomeComponent } from '../home/home.component';
 
 export class RealhomeComponent implements OnInit {
  
-brews: Object;
+brews: any;
   the1stingrediant: any;
   the4stingrediant: any;
   the3stingrediant: any;
